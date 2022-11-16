@@ -1,13 +1,11 @@
 package com.kau.kotlinchatapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.kau.kotlinchatapp.databinding.ActivityMainBinding
-import com.pages.fragments.ChatListFragment
-import com.pages.fragments.FriendListFragment
-import com.pages.fragments.NotificationFragment
-import com.pages.fragments.SettingFragment
+import com.pages.fragments.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,12 +22,18 @@ class MainActivity : AppCompatActivity() {
     private val friendListFragment: FriendListFragment = FriendListFragment()
     private val notificationFragment: NotificationFragment = NotificationFragment()
     private val settingFragment: SettingFragment = SettingFragment()
-
+    var openLogin:Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if(openLogin == 1){
+            val intent = Intent(applicationContext, GetUserPhoneNumberActivity::class.java)
+            startActivity(intent)
+        }
+
+
         replaceFragment(ChatListFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener {
