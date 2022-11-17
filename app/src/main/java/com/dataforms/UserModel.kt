@@ -10,16 +10,5 @@ data class UserModel(
     val typing: String = "false"
 ) {
 
-//    companion object {
-//
-//        @JvmStatic
-//        @BindingAdapter("imageUrl")
-//        fun loadImage(view: CircleImageView, imageUrl: String?) {
-//            imageUrl?.let {
-//                Glide.with(view.context).load(imageUrl).into(view)
-//            }
-//        }
-//    }
-
 }
 
